@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>persistence</artifactId>
+        <groupId>org.mskcc.cbio</groupId>
+        <version>0.1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <name>cBioPortal Persistence JDBC Test</name>
+    <artifactId>persistence-jdbc-test</artifactId>
+
+    <dependencies>
+<!--        <dependency>
+            <groupId>org.mskcc.cbio</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mskcc.cbio</groupId>
+            <artifactId>model</artifactId>
+            <version>0.1.0</version>
+        </dependency>-->
+                     
+        
+<!--        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>            
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <type>jar</type>
+        </dependency>-->
+        
+        <!-- testing dependencies -->
+<!--        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>-->
+        
+        <!-- spring dependencies -->
+<!--        <dependency>
+            <groupId>org.springframework.batch</groupId>
+            <artifactId>spring-batch-core</artifactId>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <type>jar</type>
+        </dependency>-->
+    </dependencies>
+</project>
