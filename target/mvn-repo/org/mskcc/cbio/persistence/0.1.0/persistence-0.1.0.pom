@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.mskcc.cbio</groupId>
+    <artifactId>persistence</artifactId>
+    <name>cBioPortal Persistence Master</name>
+    <description>master maven module</description>
+    <version>0.1.0</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>persistence-api</module>
+        <module>persistence-mybatis</module>
+        <module>persistence-mybatis-test</module>
+        <module>model</module>
+        <module>persistence-jdbc</module>
+    </modules>
+    
+    <properties>        
+        <spring.version>4.0.4.RELEASE</spring.version>
+        <github.global.server>github</github.global.server>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>       
+    </properties>
+    
+    <scm>
+        <url>https://github.com/angelicaochoa/persistence</url>
+        <connection>scm:git:git://github.com/angelicaochoa/persistence.git</connection>
+        <developerConnection>scm:git:git@github.com:angelicaochoa/persistence.git</developerConnection>
+    </scm>    
+        
+    <developers>
+        <developer>
+            <email>aochoa4230@gmail.com</email>
+            <name>Angelica Ochoa</name>
+            <url>https://github.com/angelicaochoa</url>
+            <id>angelicaochoa</id>
+        </developer>
+    </developers>    
+    
+    <distributionManagement>
+        <repository>
+            <id>internal.repo</id>
+            <name>Temporary Staging Repository</name>
+            <!--<url>https://github.com/angelicaochoa/persistence.git</url>-->
+            <url>file://${project.build.directory}/mvn-repo</url>
+        </repository>
+    </distributionManagement>
+    
+    <build>
+    <pluginManagement>
+      <plugins>
+       <plugin>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <version>2.8.1</version>
+            <configuration>
+                <!--<altDeploymentRepository>internal.repo::default::https://github.com/angelicaochoa/persistence.git</altDeploymentRepository>-->
+                <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+            </configuration>
+        </plugin>
+        
+        <plugin>
+            <groupId>com.github.github</groupId>
+            <artifactId>site-maven-plugin</artifactId>
+            <version>0.11</version>
+            <configuration>
+                <message>Maven artifacts for ${project.version}</message>  <!-- git commit message -->
+                <noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
+                <!--<outputDirectory>https://github.com/angelicaochoa/persistence.git</outputDirectory>-->
+                <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>  <!-- matches distribution management repository url above -->
+                <branch>refs/heads/mvn-repo</branch>                       <!-- remote branch name -->
+                <includes><include>**/*</include></includes>
+                <repositoryName>persistence</repositoryName>      <!-- github repo name -->
+                <repositoryOwner>angelicaochoa</repositoryOwner>    <!-- github username  -->
+            </configuration>
+            <executions>
+              <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
+              <execution>
+                <goals>
+                  <goal>site</goal>
+                </goals>
+                <phase>deploy</phase>
+              </execution>
+            </executions>
+        </plugin>
+
+
+
+                    
+
+
+
+          
+                    
+                              
+                                        
+                                                  
+                                                                      
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.5.1</version>
+          <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+          </configuration>
+        </plugin>
+        
+        
+        
+        
+        
+        
+        
+      </plugins>
+    </pluginManagement>
+    
+    
+    
+    
+    <!-- Plugins for git maven repo hosting -->                    
+<!--      <plugins>
+        <plugin>
+            <groupId>com.github.github</groupId>
+            <artifactId>downloads-maven-plugin</artifactId>
+            <version>0.6</version>
+            <configuration>
+                <description>Official ${project.name} build of the ${project.version} release</description>
+                <override>true</override>
+                <includeAttached>true</includeAttached>
+                <server>github</server>
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>upload</goal>
+                    </goals>
+                    <phase>install</phase>
+                </execution>
+            </executions>
+        </plugin>
+                  
+        <plugin>
+          <groupId>com.github.github</groupId>
+          <artifactId>site-maven-plugin</artifactId>
+          <version>0.12</version>
+          <configuration>
+            <message>Creating site for ${project.version}</message>
+            <branch>persistence-jars</branch>
+            <server>github</server>
+          </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <goal>site</goal>
+              </goals>
+              <phase>site</phase>
+            </execution>
+          </executions>
+        </plugin>
+        
+        
+      </plugins>        
+      -->
+      
+      
+<!--    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.6</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.4</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.3</version>
+      </plugin>
+    </plugins>        -->
+        
+<!--      <pluginManagement>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.5.1</version>
+            <configuration>
+              <source>1.8</source>
+              <target>1.8</target>
+            </configuration>
+          </plugin>
+        </plugins>
+      </pluginManagement>        -->
+    </build>
+
+    
+</project>
