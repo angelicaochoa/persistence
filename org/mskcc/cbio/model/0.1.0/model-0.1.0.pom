@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <name>cBioPortal Persistence Model</name>
     <parent>
-        <artifactId>persistence</artifactId>
         <groupId>org.mskcc.cbio</groupId>
+        <artifactId>persistence</artifactId>
         <version>0.1.0</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
-    <name>cBioPortal Persistence JDBC</name>
-    <artifactId>persistence-jdbc</artifactId>
-
+    <artifactId>model</artifactId>
+    <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<!--        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>-->
+    </properties>
+    
     <distributionManagement>
         <repository>
             <id>persistence.repo</id>
@@ -16,26 +30,7 @@
             <url>file://${project.build.directory}/mvn-repo</url>
         </repository>
     </distributionManagement>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.mskcc.cbio</groupId>
-            <artifactId>persistence-api</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mskcc.cbio</groupId>
-            <artifactId>model</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>19.0</version>
-            <type>jar</type>
-        </dependency>
-    </dependencies>
-    
+        
     <build>
         <plugins>
        <plugin>
