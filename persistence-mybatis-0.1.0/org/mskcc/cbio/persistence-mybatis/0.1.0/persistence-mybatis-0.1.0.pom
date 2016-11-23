@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>persistence</artifactId>
         <groupId>org.mskcc.cbio</groupId>
         <version>0.1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <name>cBioPortal Persistence JDBC</name>
-    <artifactId>persistence-jdbc</artifactId>
+    <name>cBioPortal Persistence mybatis</name>
+    <artifactId>persistence-mybatis</artifactId>
 
     <dependencies>
         <dependency>
@@ -16,18 +18,25 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.mskcc.cbio</groupId>
-            <artifactId>model</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.2.8</version>
+            <type>jar</type>
         </dependency>
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>19.0</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>4.1.8.RELEASE</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>4.1.8.RELEASE</version>
             <type>jar</type>
         </dependency>
     </dependencies>
-       
+    
     <distributionManagement>
         <site>
             <id>github-pages-site</id>
@@ -35,7 +44,7 @@
             <url>${project.artifactId}-${project.version}</url>
         </site>
         <repository>
-            <id>persistence.jdbc.repo</id>
+            <id>persistence.mybatis.repo</id>
             <name>cBioPortal Persistence Repository</name>
             <url>file://${project.build.directory}/mvn-repo</url>
         </repository>
@@ -47,7 +56,7 @@
             <artifactId>maven-deploy-plugin</artifactId>
             <version>2.8.1</version>
             <configuration>
-                <altDeploymentRepository>persistence.jdbc.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+                <altDeploymentRepository>persistence.mybatis.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
             </configuration>
         </plugin>
         
@@ -57,10 +66,10 @@
             <version>0.12</version>
             <configuration>
                 <message>Maven artifacts for ${project.version}</message>  <!-- git commit message -->
-                <noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
-                <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>   <!-- matches distribution management repository url above -->
+                <!-- <noJekyll>true</noJekyll>      -->                            <!-- disable webpage processing -->
+                <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!--  matches distribution management repository url above  -->
                 <path>${distributionManagement.site.url}</path>
-                <branch>refs/heads/mvn-repo</branch>                  <!--      remote branch name -->
+                <branch>refs/heads/mvn-repo</branch>                 <!--       remote branch name -->
                 <includes><include>**/*</include></includes>
                 <repositoryName>persistence</repositoryName>      <!-- github repo name -->
                 <repositoryOwner>angelicaochoa</repositoryOwner>    <!-- github username  --> 
@@ -77,5 +86,4 @@
         </plugin>
         </plugins>
     </build>
-    
 </project>
