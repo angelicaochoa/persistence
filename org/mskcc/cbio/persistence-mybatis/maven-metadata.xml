@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
   <groupId>org.mskcc.cbio</groupId>
-  <artifactId>persistence-api</artifactId>
+  <artifactId>persistence-mybatis</artifactId>
   <versioning>
     <release>0.1.0</release>
     <versions>
